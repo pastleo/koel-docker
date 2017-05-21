@@ -1,0 +1,10 @@
+http://localhost {
+  tls off
+  root /usr/src/koel
+  rewrite {
+    to {path} {path}/ /index.php?{query}
+  }
+  fastcgi / koel:9000 php
+  log stdout
+  errors stdout
+}
