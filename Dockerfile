@@ -5,7 +5,7 @@ RUN \
 apk update && \
 apk add mysql mysql-client ffmpeg nodejs \
 libxml2-dev libmcrypt-dev && \
-docker-php-ext-install json pdo pdo_mysql mbstring tokenizer xml mcrypt zip && \
+docker-php-ext-install exif iconv json pdo pdo_mysql mbstring tokenizer xml mcrypt zip && \
 npm install -g yarn
 
 RUN \

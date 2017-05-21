@@ -14,8 +14,7 @@ php artisan koel:init
 
 echo ">> using user koel with uid $UID..."
 adduser -u $UID -D koel &>/dev/null || true
-mkdir -p /usr/src/koel/storage
-chown -R koel /usr/src/koel/storage
+chown -R koel /usr/src/koel
 grep koel /usr/local/etc/php-fpm.d/zz-docker.conf || \
 echo 'user = koel' >> /usr/local/etc/php-fpm.d/zz-docker.conf
 
