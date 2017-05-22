@@ -32,5 +32,20 @@ VOLUME /usr/src/koel/public
 COPY scripts/* /usr/local/bin/
 RUN chmod -R +x /usr/local/bin
 
+ENV \
+DB_CONNECTION=mysql \
+DB_HOST=db \
+DB_DATABASE=koel \
+DB_USERNAME=koel \
+DB_PASSWORD=koel-some-password \
+KOEL_UID=1000 \
+PHP_MEMORY_LIMIT=64M \
+KOEL_MEDIA_PATH=/media \
+KOEL_SYNC_PERIOD=7d \
+ADMIN_EMAIL=admin@example.com \
+ADMIN_NAME=admin \
+ADMIN_PASSWORD=admin \
+FFMPEG_PATH=/usr/bin/ffmpeg
+
 CMD /usr/local/bin/entrypoint.sh
 
