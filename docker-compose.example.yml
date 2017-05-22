@@ -6,7 +6,7 @@ services:
   koel:
     # build: . # use this if you want to build on your own
     image: chgu82837/koel
-    volumes:
+    volumes: &koel_volumes
     - '/path/to/your/media:/media'
     - type: bind
       source: koel
@@ -28,4 +28,12 @@ services:
       target: /usr/src/koel
       volume:
         nocopy: true
+  period_sync:
+    # build: . # use this if you want to build on your own
+    image: chgu82837/koel
+    env_file: .env
+    depends_on:
+    - db
+    volumes: *koel_volumes
+    command: /usr/local/bin/koel_period_sync.sh
 

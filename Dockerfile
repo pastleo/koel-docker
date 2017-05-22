@@ -20,7 +20,7 @@ WORKDIR /usr/src/koel
 ENV BROADCAST_DRIVER=log
 
 RUN \
-composer install
+/usr/local/bin/composer install
 
 RUN \
 apk add --no-cache python make gcc g++ && \
@@ -29,8 +29,8 @@ apk del python make gcc g++
 
 VOLUME /usr/src/koel/public
 
-ADD entrypoint.sh /usr/local/bin/entrypoint
+COPY scripts/* /usr/local/bin/
 RUN chmod -R +x /usr/local/bin
 
-CMD /usr/local/bin/entrypoint
+CMD /usr/local/bin/entrypoint.sh
 
