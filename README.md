@@ -34,3 +34,11 @@ edit it on your own choice, then you should be good to go:
 docker-compose up
 ```
 
+## Sync media
+
+Remember to set the `KOEL_MEDIA_PATH` in the `.env`, then:
+
+```
+docker-compose exec koel sync_media.sh
+```
+

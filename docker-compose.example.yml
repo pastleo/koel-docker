@@ -8,7 +8,7 @@ services:
     image: chgu82837/koel
     volumes:
     - &media_path '/path/to/your/media:/media'
-    - type: bind
+    - type: volume
       source: koel
       target: /usr/src/koel
     env_file: .env
@@ -23,24 +23,8 @@ services:
     - '80:80'
     volumes:
     - ./Caddyfile:/etc/Caddyfile
-    - type: mount
+    - type: bind
       source: koel
       target: /usr/src/koel
-      volume:
-        nocopy: true
-  period_sync:
-    # build: . # use this if you want to build on your own
-    image: chgu82837/koel
-    env_file: .env
-    depends_on:
-    - db
-    - koel
-    volumes:
-    - *media_path
-    - type: mount
-      source: koel
-      target: /usr/src/koel
-      volume:
-        nocopy: true
-    command: /usr/local/bin/koel_period_sync.sh
+      read_only: true
 

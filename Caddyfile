@@ -4,7 +4,9 @@ http://localhost {
   rewrite {
     to {path} {path}/ /index.php?{query}
   }
-  fastcgi / koel:9000 php
+  fastcgi / koel:9000 php {
+    read_timeout 0
+  }
   log stdout
   errors stdout
 }
