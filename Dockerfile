@@ -27,8 +27,6 @@ apk add --no-cache python make gcc g++ && \
 yarn && \
 apk del python make gcc g++
 
-VOLUME /usr/src/koel/public
-
 COPY scripts/* /usr/local/bin/
 RUN chmod -R +x /usr/local/bin
 
