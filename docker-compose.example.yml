@@ -27,4 +27,10 @@ services:
       source: koel
       target: /usr/src/koel
       read_only: true
+  dump:
+    image: mariadb:10
+    volumes:
+    - .:/tmp/
+    env_file: .env
+    command: bash -c 'mysqldump -h $$DB_HOST -u $$DB_USERNAME -p$$DB_PASSWORD $$DB_DATABASE > "/tmp/bak/$$(date +%Y%m%d%H%M%S).sql"'
 

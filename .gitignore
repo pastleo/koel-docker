@@ -1,3 +1,5 @@
 docker-compose.yml
 .env
 app
+bak/*
+!bak/.gitkeep
