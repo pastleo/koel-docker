@@ -17,5 +17,6 @@ mysql --host="$DB_HOST" --password="$DB_PASSWORD" --user="$DB_USERNAME" --databa
 --execute="UPDATE settings SET value='s:$(expr length "$KOEL_MEDIA_PATH"):\"$KOEL_MEDIA_PATH\";';"
 
 echo ">> php artisan koel:sync ..."
-su -c 'php artisan koel:sync --no-interaction' koel
+command="php artisan koel:sync --no-interaction $@"
+su -c "$command" koel
 
