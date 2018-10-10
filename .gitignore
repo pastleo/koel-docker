@@ -3,3 +3,4 @@ docker-compose.yml
 app
 bak/*
 !bak/.gitkeep
+web

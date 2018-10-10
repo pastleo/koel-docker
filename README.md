@@ -1,6 +1,8 @@
 Koel docker image
 ===================
 
+## NOT Maintained anymore, I switched to another self-host service
+
 This example is used with a caddy server
 
 ## How to use?

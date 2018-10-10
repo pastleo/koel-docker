@@ -14,6 +14,8 @@ echo 'user = koel' >> /usr/local/etc/php-fpm.d/zz-docker.conf
 echo ">> php artisan koel:init"
 su -c 'php artisan koel:init' koel
 
+#yarn # koel:init will run this
+
 echo ">> starting php-fpm ..."
 php-fpm
 
